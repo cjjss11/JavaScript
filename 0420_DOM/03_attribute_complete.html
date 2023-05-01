@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red { 
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- <p id="banana" style="color:blue">
+    안녕하세요 <span style="color:black">최민호 입니다.</span>
+  </p>
+
+  p -> 태그이름 (element)
+  id="banana" => 속성
+  style="color:blue"  => css 스타일
+  안녕하세요 <span style="color:black">최민호 입니다.</span>   => innerhtml -->
+
+
+  <h1 class="red">안녕하세요</h1>
+  
+  <div></div>
+
+  <script>
+    // a tag 생성 및 컨텐츠 추가
+    const aTag = document.createElement('a')
+    aTag.innerText = '구글'
+
+    // a 태그의 href 속성 추가
+    aTag.setAttribute('href', 'https://google.com')
+    console.log(aTag.getAttribute('href'))            // href 속성의 값 출력하기 google.com 출력
+
+
+    // div 태그의 자식 태그로 aTag 추가
+    const div = document.querySelector('div')
+    div.appendChild(aTag)
+
+
+    // h1 tag 선택 및 클래스 목록 조회
+    const h1 = document.querySelector('h1') 
+    console.log(h1.classList)
+
+    
+    // // toggle은 클래스가 존재한다면 클래스를 제거하고 false를 반환, 
+    // // 클래스가 존재하지 않으면 클래스를 추가하고 true를 반환
+    // // 스위치 켜고 끄는 것 처럼 적용
+
+    const st=h1.classList.toggle('red') // red 클래스가 존재하므로 이 코드에서는 지워짐 
+    console.log(h1.classList)
+    console.log(st)
+    
+
+     // st에서 지웠으므로 현재는 없는 상태이니 이 코드에서 다시 red 클래스가 생성되고 h1 색깔이 red로 바뀜
+    const st2=h1.classList.toggle('red')
+    console.log(h1.classList)
+    console.log(st2)
+
+    const st3=h1.classList.toggle('red') // st2에서 생성하였으므로 이 코드에서 지워짐
+
+    const st4=h1.classList.toggle('blue') // blue 클래스는 없으므로 생성되고 h1 색깔이 blue로 바뀜
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS DOM</title>
+</head>
+<style>
+  .red {
+    color: red;
+  }
+
+  .big {
+    font-size: 32px;
+  }
+</style>
+<body>
+  <h1>selector test</h1>
+
+  <!-- <button id="event-button">커져라!</button> -->
+
+  <ul id="list">
+    <li class="red">apple</li>
+    <li>orange</li>
+    <li id="banana">banana</li>
+    <li>grape</li>
+    <li class="red">strawberry</li>
+  </ul>
+
+  <script>
+    // strawberry 아래에 새로운 과일을 하나 더 추가하시오.
+    const mango = document.createElement("li")
+    mango.innerText = '망고'
+
+    const parent = document.querySelector("ul") // ul 태그 찾아오기
+    parent.appendChild(mango) // 찾은 부모 태그에 appendChild 이용해서 태그 추가하기
+    
+
+    // apple 위에 새로운 과일을 하나 더 추가하시오.
+    const pineapple = document.createElement("li")
+    pineapple.innerText = '파인애플'
+
+    // const parent = document.querySelector("ul")
+    parent.prepend(pineapple)
+
+
+    // orange와 banana 사이에 새로운 과일을 하나 더 추가하시오.
+    const kiwi = document.createElement("li")
+    kiwi.innerText = '키위'
+    const banana = document.querySelector("#banana")
+
+    parent.insertBefore(kiwi, banana)
+
+    // 문법
+    // let insertedNode = parentNode.insertBefore(newNode, referenceNode);
+    // parentNode - 새로 삽입될 노드의 부모노드
+    // insertBefore - 앞에 놓아라
+    // newNode - 삽입할 노드
+    // referencenode - 참조할 노드
+
+    // 모든 li 태그의 글자 크기 키우기
+    const liTags = document.querySelectorAll('li')
+
+    liTags.forEach(element => {
+      element.classList.add('big')
+    });
+    
+    //빨간색 글자들 red class 제거해서 검은색으로 만들기
+    const reds = document.querySelectorAll(".red")
+
+    reds.forEach(element => {
+      element.classList.remove("red")
+    });
+
+    //빨간색 글자들 red class 다시 빨강색으로 만들기
+    reds.forEach(element => {
+      element.classList.add("red")
+    });
+
+
+    // class가 'red'인 노드 모두 삭제
+    
+    reds.forEach(element => {
+      element.remove();
+    });
+
+
+
+  // // 버튼을 누르면 이벤트 실행하기(4일차 내용 맛보기)
+  // const button = document.querySelector('#event-button')
+
+  // button.addEventListener('click', () => changeFont());
+
+  // function changeFont() {
+  //   const liTags = document.querySelectorAll('li')
+
+  //   liTags.forEach(element => {
+  //     element.classList.add('big')
+  //   });
+  // }
+
+    
+
+  </script>
+</body>
+</html>
