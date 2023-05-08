@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <!-- <a href="https://www.ssafy.com/" style="color:blueviolet">SSAFY</a> -->
+  </div>
+  <script>
+    const aTag = document.createElement('a')
+    document.body.appendChild(aTag)
+    aTag.innerText = 'SSAFY'
+    aTag.setAttribute('href', 'https://www.ssafy.com')
+    aTag.addEventListener('click', function(event) {
+      event.preventDefault()
+    })
+  </script>
+</body>
+</html>
